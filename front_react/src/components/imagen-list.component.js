@@ -17,6 +17,7 @@ class ImagenesList extends Component {
       currentImagen: null,
       currentIndex: -1,
       searchTitle: "",
+      contador: 1,
     };
   }
 
@@ -43,6 +44,7 @@ class ImagenesList extends Component {
     this.setState({
       currentImagen: imagen,
       currentIndex: index,
+      contador:this.state.contador + 1,
     });
   }
 
@@ -65,7 +67,7 @@ class ImagenesList extends Component {
   }
 
   render() {
-    const { searchTitle, currentImagen, currentIndex } = this.state;
+    const { searchTitle, currentImagen, currentIndex, contador } = this.state;
     const { imagenes } = this.props;
 
     return (
@@ -124,23 +126,23 @@ class ImagenesList extends Component {
                 <label>
                   <strong>Title:</strong>
                 </label>{" "}
-                {currentImagen.title}
+                <a>{currentImagen.title}</a>
               </div>
               <div>
                 <label>
                   <strong>Description:</strong>
                 </label>{" "}
-                {currentImagen.description}
+                <a>{currentImagen.description}</a>
               </div>
               <div>
                 <label>
                   <strong>Status:</strong>
                 </label>{" "}
-                {currentImagen.published ? "Published" : "Pending"}
+                <a>{currentImagen.published ? "Published" : "Pending"}</a>
               </div>
 
               <Link
-                to={"/imagenes/" + currentImagen.id}
+                to={"/imagen/" + currentImagen.id}
                 className="badge badge-warning"
               >
                 Edit

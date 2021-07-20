@@ -52,3 +52,8 @@
   max-width: 300px;
   margin: auto;
 }
+
+.badge {
+  color:white;
+  background-color: green;
+}
